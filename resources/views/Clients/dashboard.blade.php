@@ -23,10 +23,12 @@
 
     <section>
         <h3 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Réserver une chambre :</h3>
+        <p>ceci est un paragraphe</p>
     </section>
 
+    <section class="bg-purple-100">
+        <h3 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Réserver un service :</h3>
+        <p>ceci est un paragraphe.</p>
     </section>
-        <h3 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Réserver une chambre :</h3>
-    <section></section>
 
 @endsection
