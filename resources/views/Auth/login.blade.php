@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container h-3/4">
+    <div class="container h-3/4 place-self-center">
         <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Connexion</h2>
 
         <form method="POST" action="{{ route('login') }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
