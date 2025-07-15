@@ -5,7 +5,7 @@
     <div>
         <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Créer un compte</h2>
 
-        <form method="POST" action="{{ route('register') }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
+        <form method="POST" action="{{ route('doRegister') }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
             @csrf
 
             <div>
@@ -69,7 +69,7 @@
             <button type="submit" class="bg-purple-400 text-center text-yellow-50 font-bold text-2xl border border-3 border-purple-900 rounded-sm m-2 p-2 hover:bg-purple-900"> Créer mon espace </button>
 
             <div class="text-indigo-900 font-semibold">
-                Vous avez déjà un compte? <a href="{{ route('login') }}" class="hover:underline">Se connecter</a>
+                Vous avez déjà un compte? <a href="{{ route('clientLogin') }}" class="hover:underline">Se connecter</a>
             </div>
 
         </form>
