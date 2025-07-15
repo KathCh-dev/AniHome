@@ -16,7 +16,16 @@
                 <a href="" class="text-purple-900 font-medium hover:underline">Contact</a>
             </div>
             <a href="" class="content-center"><img src="..\..\images\logo-anihome.png" alt="Logo cliquable d'Ani'Home, il vous ramène à la page d'accueil du site."></a>
-            <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
+
+            @guest
+                    <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
+                @else
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                       <button type="submit" class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Déconnexion ➜</button>
+                    </form>
+            @endguest
+
         </div>
     </nav>
 

@@ -23,7 +23,7 @@ class AuthController extends Controller
     public function clientDoLogin(Request $request){
         $request->validate([
             'email' => 'required | email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ]);
 
         $client = Client::where('client_email', $request->input('email'))->first();
@@ -49,7 +49,7 @@ class AuthController extends Controller
         public function adminDoLogin(Request $request){
         $request->validate([
             'email' => 'required | email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ]);
 
         $admin = Admin::where('admin_email', $request->input('email'))->first();
@@ -104,7 +104,12 @@ class AuthController extends Controller
     }
 
     public function adminDashboard(){
-        return view('adminDashboard');
+        return view('admins.adminDashboard');
+    }
+
+    public function logout(){
+        \Auth::logout();
+        return to_route('clientLogin');
     }
 
 }
