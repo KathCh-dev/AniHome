@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use Hash;
+use function Laravel\Prompts\error;
 
 class ClientController extends Controller
 {
