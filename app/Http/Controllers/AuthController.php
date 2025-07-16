@@ -33,7 +33,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function dashboard(){
-        return view('clients.dashboard');
+    public function clientDashboard(){
+        return view('clients.clientDashboard');
     }
 }
