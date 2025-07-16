@@ -10,11 +10,9 @@ use function Laravel\Prompts\error;
 use Hash;
 use function PHPUnit\Framework\returnArgument;
 
+//Ce controller gèrera la partie Client car la table Clients a été passée en provider par défaut de "web
 class AuthController extends Controller
 {
-    public function register(){
-        return view('auth.register');
-    }
 
     public function clientLogin(){
         return view('auth.clientLogin');
@@ -65,46 +63,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function doRegister(Request $request){
-        $validated = $request->validate([
-            'name' => 'required',
-            'firstName' => 'required',
-            'streetNumber' => 'required',
-            'streetName' => 'required',
-            'postcode' => 'required',
-            'city' => 'required',
-            'number' => 'required',
-            'email' => 'required|email|unique:clients,client_email',
-            // pas d'espace après la virgule dans le unique, sinon Laravel considère qu'il y a un espace au nom de la colonne
-            'password' => 'required|confirmed|min:8|same:passwordCheck',
-            'passwordCheck' => 'required|confirmed|min:8',
-        ]);
-
-        if($validated['password'] !== $validated['passwordCheck']){
-            return error('Les deux mots de passe ne correspondent pas.');
-        }
-
-        Client::create([
-            'client_name' => $validated['name'],
-            'client_firstName' => $validated['firstName'],
-            'client_streetNumber' => $validated['streetNumber'],
-            'client_streetName' => $validated['streetName'],
-            'client_postcode' => $validated['postcode'],
-            'client_city' => $validated['city'],
-            'client_number' => $validated['number'],
-            'client_email' => $validated['email'],
-            'client_password' => Hash::make($validated['password']),
-        ]);
-
-        return redirect()->route('clientLogin')->with('success', 'Votre compte a bien été crée !');
-    }
-
     public function clientDashboard(){
         return view('clients.clientDashboard');
-    }
-
-    public function adminDashboard(){
-        return view('admins.adminDashboard');
     }
 
     public function logout(){
