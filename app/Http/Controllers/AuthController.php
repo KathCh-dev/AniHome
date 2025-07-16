@@ -76,13 +76,8 @@ class AuthController extends Controller
             'number' => 'required',
             'email' => 'required|email|unique:clients,client_email',
             // pas d'espace après la virgule dans le unique, sinon Laravel considère qu'il y a un espace au nom de la colonne
-            'password' => 'required|confirmed|min:8|same:passwordCheck',
-            'passwordCheck' => 'required|confirmed|min:8',
+            'password' => 'required|confirmed|min:8',
         ]);
-
-        if($validated['password'] !== $validated['passwordCheck']){
-            return error('Les deux mots de passe ne correspondent pas.');
-        }
 
         Client::create([
             'client_name' => $validated['name'],
