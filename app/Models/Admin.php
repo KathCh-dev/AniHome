@@ -6,32 +6,27 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Client extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasUuids;
 
-    protected $primaryKey = 'client_id';
+    protected $primaryKey = "admin_id";
     public $incrementing = false;
-    protected $keyType = 'string';
+    protected $keyType  ='string';
 
     protected $fillable=[
-        'client_name',
-        'client_firstName',
-        'client_streetNumber',
-        'client_streetName',
-        'client_postcode',
-        'client_city',
-        'client_number',
-        'client_email',
-        'client_password',
+        'admin_name',
+        'admin_firstName',
+        'admin_email',
+        'admin_password',
     ];
 
-    public function getAuthPassword(){
-        return $this->client_password;
+        public function getAuthPassword(){
+        return $this->admin_password;
     }
 
     public function getAuthIdentifier(){
-        return $this->client_email;
+        return $this->admin_email;
     }
 
         /**
@@ -40,7 +35,8 @@ class Client extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'client_password',
+        'admin_password',
+        'remember_token',
     ];
 
     /**
@@ -51,8 +47,8 @@ class Client extends Authenticatable
     protected function casts(): array
     {
         return [
-            'client_email_verified_at' => 'datetime',
-            'client_password' => 'hashed',
+            'admin_email_verified_at' => 'datetime',
+            'admin_password' => 'hashed',
         ];
     }
 
