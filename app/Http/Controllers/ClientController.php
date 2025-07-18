@@ -11,7 +11,7 @@ class ClientController extends Controller
 {
         public function clientDashboard(){
         $clients = Client::all();
-        return view('clientss.clientDashboard', compact('clients'));
+        return view('clients.clientDashboard', compact('clients'));
     }
     /**
      * Display a listing of the resource.

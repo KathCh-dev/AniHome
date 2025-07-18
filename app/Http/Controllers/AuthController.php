@@ -26,7 +26,9 @@ class AuthController extends Controller
 
         $client = Client::where('client_email', $request->input('email'))->first();
 
-        if($client && Hash::check($request->input('password'), $client->client_password)){
+        
+        if($client && Hash::check($request->input('password'), (string)$client->client_password)){
+            dd($client);
             //on autorise l'authentification
             Auth::login($client);
             // on démarre une nouvelle session pour éviter l'usurpation de token
@@ -52,7 +54,7 @@ class AuthController extends Controller
 
         $admin = Admin::where('admin_email', $request->input('email'))->first();
 
-        if($admin && Hash::check($request->input('password'), $admin->admin_password)){
+        if($admin && Hash::check($request->input('password'), (string)$admin->admin_password)){
             Auth::login($admin);
             $request->session()->regenerate();
             return redirect()->intended(route('adminDashboard'));
