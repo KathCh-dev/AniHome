@@ -10,6 +10,7 @@ Route::post('/register', [ClientController::class, 'doRegister'])->name('doRegis
 Route::get('/clientLogin', [AuthController::class, 'clientLogin'])->name('clientLogin');
 Route::post('/clientLogin', [AuthController::class, 'clientDoLogin'])->name('clientDoLogin');
 Route::get('/clientDashboard/{client_id}', [ClientController::class, 'clientDashboard'])->name('clientDashboard');
+Route::post('/clientDashboard/{client_id}', [ClientController::class, 'updateClient'])->name('updateClient');
 Route::get('/adminLogin', [AuthController::class, 'adminLogin'])->name('adminLogin');
 Route::post('/adminLogin', [AuthController::class, 'adminDoLogin'])->name('adminDoLogin');
 Route::get('/adminDashboard', [AdminController::class, 'adminDashboard'])->name('adminDashboard');

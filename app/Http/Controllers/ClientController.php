@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Hash;
+use Illuminate\Validation\Rule;
 use function Laravel\Prompts\error;
 
 class ClientController extends Controller
@@ -82,10 +83,40 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateClient(Request $request, string $id)
     {
-        //
+        $client = Client::findOrFail($id);
+        
+        $validated = $request->validate([
+            'name' => 'required',
+            'firstName' => 'required',
+            'streetNumber' => 'required',
+            'streetName' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'number' => 'required',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('clients', 'client_email')->ignore($client->client_id, 'client_id')
+            ],
+        ]);
+
+
+        $client->update([
+            'client_name' => $validated['name'],
+            'client_firstName' => $validated['firstName'],
+            'client_streetNumber' => $validated['streetNumber'],
+            'client_streetName' => $validated['streetName'],
+            'client_postcode' => $validated['postcode'],
+            'client_city' => $validated['city'],
+            'client_number' => $validated['number'],
+            'client_email' => $validated['email'],
+        ]);
+    
+        return redirect()->back()->with('success', 'Vos informations ont été mises à jour.');
     }
+
 
     /**
      * Remove the specified resource from storage.
