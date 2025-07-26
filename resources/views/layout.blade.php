@@ -17,14 +17,15 @@
             </div>
             <a href="" class="content-center"><img src="..\..\images\logo-anihome.png" alt="Logo cliquable d'Ani'Home, il vous ramène à la page d'accueil du site."></a>
 
+            <!-- Bouton de connexion si la personne n'est pas connectée -->
             @guest
-                    <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
-                @else
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                       <button type="submit" class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Déconnexion ➜</button>
-                    </form>
+                <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se déconnecter ➜</button></a>
             @endguest
+
+            <!-- Bouton de déconnexion si la personne est connectée -->
+            @auth
+                <a href="{{ route('logout') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
+            @endauth
 
         </div>
     </nav>
