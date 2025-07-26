@@ -27,14 +27,14 @@ class AuthController extends Controller
         $client = Client::where('client_email', $request->input('email'))->first();
 
         
-        if($client && Hash::check($request->input('password'), (string)$client->client_password)){
-            dd($client);
+        if($client && Hash::check($request->input('password'), (string)$client->client_password)){;
             //on autorise l'authentification
             Auth::login($client);
             // on démarre une nouvelle session pour éviter l'usurpation de token
             $request->session()->regenerate();
             //on redirige notre client vers son dashboard perso
-            return redirect()->intended(route('clientDashboard'));
+            return redirect()->intended(route('clientDashboard', ['client_id'=>$client->client_id]));
+                                    //dans ma route, j'appelle ma route clientDashboard et je lui passe un tableau de variables dans lequel se trouve 'client_id' qui a pour valeur client_id contenu dans un objet client
         }
 
         return back()->withErrors([

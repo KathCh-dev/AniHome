@@ -9,9 +9,9 @@ use function Laravel\Prompts\error;
 
 class ClientController extends Controller
 {
-        public function clientDashboard(){
-        $clients = Client::all();
-        return view('clients.clientDashboard', compact('clients'));
+        public function clientDashboard($client_id){
+        $client = Client::findOrFail($client_id);
+        return view('clients.clientDashboard', compact('client'));
     }
     /**
      * Display a listing of the resource.
@@ -77,14 +77,6 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         return view('client.show', compact('client'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
 
     /**

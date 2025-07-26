@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="text-center text-indigo-900 font-extrabold text-5xl m-5">Bienvenue </h1>
+    <h1 class="text-center text-indigo-900 font-extrabold text-5xl m-5">Bienvenue {{ $client->client_firstName }}</h1>
 
     <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Que souhaitez-vous faire aujourd'hui?</h2>
 

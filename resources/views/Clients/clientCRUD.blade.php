@@ -5,56 +5,48 @@
 
             <div>
                 <label for="name" class="text-indigo-900 font-bold">Nom :</label>
-                <input type="text" id="name" name="name" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="name" name="name" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required value="{{ $client->client_name }}">
 
                 <label for="firstName" class="text-indigo-900 font-bold">Prénom :</label>
-                <input type="text" id="firstName" name="firstName" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="firstName" name="firstName" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_firstName }}">
             </div>
 
             <br>
 
             <div>
                 <label for="streetNumber" class="text-indigo-900 font-bold">N° de rue :</label>
-                <input type="text" id="streetNumber" name="streetNumber" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="streetNumber" name="streetNumber" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required   value="{{ $client->client_streetNumber }}">
 
                 <label for="streetName" class="text-indigo-900 font-bold">Nom de rue :</label>
-                <input type="text" id="streetName" name="streetName" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="streetName" name="streetName" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_streetName }}">
 
                 <br>
 
                 <label for="postcode" class="text-indigo-900 font-bold">Code postal :</label>
-                <input type="text" id="postcode" name="postcode" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="postcode" name="postcode" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_postcode }}">
 
                 <label for="city" class="text-indigo-900 font-bold">Ville :</label>
-                <input type="text" id="city" name="city" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="city" name="city" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_city }}">
             </div>
 
             <br>
 
             <div>
                 <label for="number" class="text-indigo-900 font-bold">Numéro de téléphone portable * :</label>
-                <input type="text" id="number" name="number" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="text" id="number" name="number" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_number }}">
             </div>
 
             <br>
 
             <div>
                 <label for="email" class="text-indigo-900 font-bold">Email :</label>
-                <input type="email" id="email" name="email" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <input type="email" id="email" name="email" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required  value="{{ $client->client_email }}">
             </div>
 
             <br>
 
-            <div>
-                <label for="password" class="text-indigo-900 font-bold">Mot de passe * :</label>
-                <input type="password" id="pasword" name="password" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
-
-                <br>
-
-                <label for="passwordCheck" class="text-indigo-900 font-bold">Confirmation du mot de passe :</label>
-                <input type="password" id="passwordCheck" name="passwordCheck" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
-
-                <p class="text-indigo-900">* Votre mot de passe doit contenir au moins 8 caractères, dont un chiffre et un caractère spécial.</p>
+            <div>                
+                <p class="text-indigo-900">Vous souhaitez changer de mot de passe ? C'est par <a href="" class="hover:underline">ici</a> !</p>
             </div>
 
             <br>

@@ -5,7 +5,7 @@
     <div>
         <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Créer un compte</h2>
 
-        <form method="POST" action="{{ route('doRegister') }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
+        <form method="POST" action="{{ route('doRegister') }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5" id="registerForm">
             @csrf
 
             <div>
