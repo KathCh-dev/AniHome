@@ -2,11 +2,21 @@
 
 @section('content')
 
-@if (session('success'))
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center w-3/4 mx-auto">
-        {{ session('success') }}
-    </div>
-@endif
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center w-3/4 mx-auto">
+            {{ session('success') }}
+        </div>
+    @endif
+
+                @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                    <ul class="list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
     <div>
         <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Créer un compte</h2>
@@ -64,8 +74,8 @@
 
                 <br>
 
-                <label for="passwordCheck" class="text-indigo-900 font-bold">Confirmation du mot de passe :</label>
-                <input type="password" id="passwordCheck" name="passwordCheck" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
+                <label for="password_confirmation" class="text-indigo-900 font-bold">Confirmation du mot de passe :</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="bg-yellow-50 border border-purple-900 rounded-sm m-3 p-1" required>
 
                 <p class="text-indigo-900">* Votre mot de passe doit contenir au moins 8 caractères, dont un chiffre et un caractère spécial.</p>
             </div>

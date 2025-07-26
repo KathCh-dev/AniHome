@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center w-3/4 mx-auto">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="container h-3/4 place-self-center">
         <h2 class="text-center text-indigo-900 font-extrabold text-4xl m-5">Connexion</h2>
 

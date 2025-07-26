@@ -24,14 +24,6 @@ class ClientController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     public function register(){
         return view('auth.register');
     }
@@ -48,11 +40,11 @@ class ClientController extends Controller
             'number' => 'required',
             'email' => 'required|email|unique:clients,client_email',
             // pas d'espace après la virgule dans le unique, sinon Laravel considère qu'il y a un espace au nom de la colonne
-            'password' => 'required|confirmed|min:8|same:passwordCheck',
-            'passwordCheck' => 'required|confirmed|min:8',
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required',
         ]);
 
-        if($validated['password'] !== $validated['passwordCheck']){
+        if($validated['password'] !== $validated['password_confirmation']){
             return error('Les deux mots de passe ne correspondent pas.');
         }
 
@@ -121,8 +113,12 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyClient(string $id)
     {
-        //
+        $client = Client::findOrFail($id);
+
+        $client->delete();
+
+        return redirect()->route('clientLogin')->with('success', 'Votre compte a été effacé !');
     }
 }

@@ -1,8 +1,6 @@
     <div>
-
         <form method="POST" action="{{ route('updateClient', ['client_id' => $client->client_id]) }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
             @csrf
-
 
             @if ($errors->any())
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -61,7 +59,9 @@
             </div>
 
             <br>
-
-            <button type="submit" class="bg-purple-400 text-center text-yellow-50 font-bold text-2xl border border-3 border-purple-900 rounded-sm m-2 p-2 hover:bg-purple-900"> Modifier </button>
+            <div>
+                <button type="submit" class="bg-purple-400 text-center text-yellow-50 font-bold text-2xl border border-3 border-purple-900 rounded-sm m-2 p-2 hover:bg-purple-900"> Modifier </button>
+            </div>
+            <a href="{{ route('destroyClient', ['client_id' => $client->client_id]) }}" class="text-indigo-900 text-sm hover:underline" onclick="return confirm('Cette action est irréversible. Vos données ainsi que celles de vos animaux seront définitivement effacées et ne pourrons pas être récupérées. Etes-vous sûr de vouloir poursuivre ? Si vous avez un doute, contactez-nous !');">Supprimer mon compte</a>
         </form>
     </div>
