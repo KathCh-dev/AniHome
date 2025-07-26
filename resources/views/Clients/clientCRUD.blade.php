@@ -2,7 +2,7 @@
         <form method="POST" action="{{ route('updateClient', ['client_id' => $client->client_id]) }}" class="bg-purple-100 box-border rounded-md shadow-xl w-3/4 text-center place-self-center m-10 p-5">
             @csrf
 
-            @if ($errors->any())
+            <!-- @if ($errors->any())
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                     <ul class="list-disc list-inside">
                         @foreach ($errors->all() as $error)
@@ -10,7 +10,8 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif -->
+            <!-- Utilisation pour tests manuels -->
 
             <div>
                 <label for="name" class="text-indigo-900 font-bold">Nom :</label>
@@ -55,7 +56,7 @@
             <br>
 
             <div>                
-                <p class="text-indigo-900">Vous souhaitez changer de mot de passe ? C'est par <a href="" class="hover:underline">ici</a> !</p>
+                <p class="text-indigo-900">Vous souhaitez changer de mot de passe ? C'est par <a href="{{ route('clientUpdatePassword', ['client_id' => $client->client_id]) }}" class="hover:underline">ici</a> !</p>
             </div>
 
             <br>

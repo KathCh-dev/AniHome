@@ -11,6 +11,8 @@ Route::get('/clientLogin', [AuthController::class, 'clientLogin'])->name('client
 Route::post('/clientLogin', [AuthController::class, 'clientDoLogin'])->name('clientDoLogin');
 Route::get('/clientDashboard/{client_id}', [ClientController::class, 'clientDashboard'])->name('clientDashboard');
 Route::post('/clientDashboard/{client_id}', [ClientController::class, 'updateClient'])->name('updateClient');
+Route::get('/clientUpdatePassword/{client_id}', [ClientController::class, 'clientUpdatePassword'])->name('clientUpdatePassword');
+Route::post('/clientUpdatePassword/{client_id}', [ClientController::class, 'updateClientPassword'])->name('updateClientPassword');
 Route::get('/destroyClient/{client_id}', [ClientController::class, 'destroyClient'])->name('destroyClient');
 Route::get('/adminLogin', [AuthController::class, 'adminLogin'])->name('adminLogin');
 Route::post('/adminLogin', [AuthController::class, 'adminDoLogin'])->name('adminDoLogin');

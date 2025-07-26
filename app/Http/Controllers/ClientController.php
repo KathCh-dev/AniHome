@@ -10,13 +10,12 @@ use function Laravel\Prompts\error;
 
 class ClientController extends Controller
 {
-        public function clientDashboard($client_id){
+    //Permet d'afficher le dashboard du client
+    public function clientDashboard($client_id){
         $client = Client::findOrFail($client_id);
         return view('clients.clientDashboard', compact('client'));
     }
-    /**
-     * Display a listing of the resource.
-     */
+    //Récupère tous les clients dans la DB
     public function index()
     {
         return view('client.index', [
@@ -24,8 +23,23 @@ class ClientController extends Controller
         ]);
     }
 
+    //Permet l'affichage du formulaire de création de compte
     public function register(){
         return view('auth.register');
+    }
+
+    //Permet l'affichage du formulaire de mise à jour du mot de passe
+    public function clientUpdatePassword($client_id)
+    {
+        $client = Client::findOrFail($client_id);
+        return view('clients.clientUpdatePassword', compact('client'));
+    }
+
+    //Retrouve et affiche un client spécifique
+    public function show(string $id)
+    {
+        $client = Client::findOrFail($id);
+        return view('client.show', compact('client'));
     }
     
     //Enregistrer un nouveau client en DB.
@@ -63,18 +77,7 @@ class ClientController extends Controller
         return redirect()->route('clientLogin')->with('success', 'Votre compte a bien été crée !');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $client = Client::findOrFail($id);
-        return view('client.show', compact('client'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    //Met à jour les données du client dans la DB
     public function updateClient(Request $request, string $id)
     {
         $client = Client::findOrFail($id);
@@ -109,10 +112,24 @@ class ClientController extends Controller
         return redirect()->back()->with('success', 'Vos informations ont été mises à jour.');
     }
 
+    //Met à jour le mot de passe du client dasn la DB
+    public function updateClientPassword(Request $request, string $id)
+    {
+        $client = Client::findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        $validated = $request->validate([
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required',
+        ]);
+
+        $client->update([
+            'client_password' => Hash::make($validated['password']),
+        ]);
+
+        return redirect()->route('clientDashboard', ['client_id' => $client->client_id])->with('success', 'Votre mot de passe a été modifié !');
+    }
+
+    //Efface les données du client de la db
     public function destroyClient(string $id)
     {
         $client = Client::findOrFail($id);
