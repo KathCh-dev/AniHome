@@ -11,10 +11,12 @@ use function Laravel\Prompts\error;
 class ClientController extends Controller
 {
     //Permet d'afficher le dashboard du client
-    public function clientDashboard($client_id){
+    public function clientDashboard($client_id)
+    {
         $client = Client::findOrFail($client_id);
         return view('clients.clientDashboard', compact('client'));
     }
+
     //Récupère tous les clients dans la DB
     public function index()
     {
