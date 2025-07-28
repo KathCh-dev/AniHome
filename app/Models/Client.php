@@ -26,6 +26,12 @@ class Client extends Authenticatable
         'client_password',
     ];
 
+    //Définit la relation entre Client et Pet
+    public function pets(){
+        return $this->hasMany(Pet::class, 'client_id', 'client_id');
+        //'client_id (1er) = clé étrangère dans la table pets, 'client_id' (2eme) = clé primaire locale dans la table clients
+    }
+
     public function getAuthPassword(){
         return $this->client_password;
     }
