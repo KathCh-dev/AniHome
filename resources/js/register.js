@@ -15,27 +15,36 @@ function validationForm(){
     let password = document.getElementById('password').value;
     let password_confirmation = document.getElementById('password_confirmation').value;
 
-    let error_name = document.getElementById('error-name').value;
-    let error_firstName = document.getElementById('error-firstName').value;
-    let error_streetNumber = document.getElementById('error-streetNumber').value;
-    let error_streetName = document.getElementById('error-streetName').value;
-    let error_postcode = document.getElementById('error-postcode').value;
-    let error_city = document.getElementById('error-city').value;
-    let error_number = document.getElementById('error-number').value;
-    let error_email = document.getElementById('error-email').value;
-    let error_password = document.getElementById('error-password').value;
-    let error_password_confirmation = document.getElementById('error-password_confirmation').value;
+    let error_name = document.getElementById('error-name');
+    let error_firstName = document.getElementById('error-firstName');
+    let error_streetNumber = document.getElementById('error-streetNumber');
+    let error_streetName = document.getElementById('error-streetName');
+    let error_postcode = document.getElementById('error-postcode');
+    let error_city = document.getElementById('error-city');
+    let error_number = document.getElementById('error-number');
+    let error_email = document.getElementById('error-email');
+    let error_password = document.getElementById('error-password');
+    let error_password_confirmation = document.getElementById('error-password_confirmation');
 
-    function emailCheck(email) {
+    function emailCheck(email) 
+    {
         let regex = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$/i
         // regex pour vérifier que le mail a bien un format email
         return regex.test(email);
     }
 
-    function passwordCheck(password) {
+    function passwordCheck(password) 
+    {
         let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[/@$!%*?&])[A-Za-z\d/@$!%*?&]{8,}$/i
         // regex pour vérifier que le mot de passe contient au minimum 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial
         return regex.test(password);
+    }
+
+    function numberCheck(number)
+    {
+        let regex = /^\d{10}$/i
+        //regex ppour vérifier que le numéro de téléphone contient 10 chiffres et ne contient bien que des nombres
+        return regex.test(number);
     }
 
     let isValid = true
@@ -79,12 +88,16 @@ function validationForm(){
         error_number.innerHTML = "Le numéro de téléphone est obligatoire."
         isValid = false
     }
+    if(!numberCheck(number)){
+        error_number.innerHTML = "Le numéro de téléphone entrée n'est pas valide."
+        isValid = false
+    }
     if(email === ""){
-        error_userMail.innerHTML = "L'adresse mail est obligatoire."
+        error_email.innerHTML = "L'adresse mail est obligatoire."
         isValid = false
     }
     if(!emailCheck(email)){
-        error_userMail.innerHTML = "L'adresse mail entrée n'est pas valide."
+        error_email.innerHTML = "L'adresse mail entrée n'est pas valide."
         isValid = false
     }
     if(password === ""){

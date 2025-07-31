@@ -95,9 +95,7 @@
             </div>
 
         </form>
-        <script>
-            
-        </script>
+        @vite('resources/js/register.js');
     </div>
 
 
