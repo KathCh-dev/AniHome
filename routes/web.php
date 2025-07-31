@@ -3,9 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', [ClientController::class, 'register'])-> name('register');
+Route::get('', [HomepageController::class, 'homepage'])->name('homepage');
+Route::get('/register', [ClientController::class, 'register'])->name('register');
 Route::post('/register', [ClientController::class, 'doRegister'])->name('doRegister');
 Route::get('/clientLogin', [AuthController::class, 'clientLogin'])->name('clientLogin');
 Route::post('/clientLogin', [AuthController::class, 'clientDoLogin'])->name('clientDoLogin');
