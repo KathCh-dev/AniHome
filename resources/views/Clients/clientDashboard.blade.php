@@ -17,7 +17,7 @@
 
         
         <div>
-            <h4 class="text-center text-indigo-900 font-extrabold text-1xl m-5"> Créer une fiche !</h4>
+            <a href=""><h4 class="text-center text-indigo-900 font-extrabold text-1xl m-5"> Créer une fiche !</h4></a>
         </div>
         
         <div>

@@ -10,9 +10,11 @@ use function Laravel\Prompts\error;
 use Hash;
 use function PHPUnit\Framework\returnArgument;
 
-//Ce controller gèrera la partie Client car la table Clients a été passée en provider par défaut de "web
 class AuthController extends Controller
 {
+    public function register(){
+        return view('auth.register');
+    }
 
     public function clientLogin(){
         return view('auth.clientLogin');
@@ -26,15 +28,13 @@ class AuthController extends Controller
 
         $client = Client::where('client_email', $request->input('email'))->first();
 
-        
-        if($client && Hash::check($request->input('password'), (string)$client->client_password)){;
+        if($client && Hash::check($request->input('password'), $client->client_password)){
             //on autorise l'authentification
             Auth::login($client);
             // on démarre une nouvelle session pour éviter l'usurpation de token
             $request->session()->regenerate();
             //on redirige notre client vers son dashboard perso
-            return redirect()->intended(route('clientDashboard', ['client_id'=>$client->client_id]));
-                                    //dans ma route, j'appelle ma route clientDashboard et je lui passe un tableau de variables dans lequel se trouve 'client_id' qui a pour valeur client_id contenu dans un objet client
+            return redirect()->intended(route('clientDashboard'));
         }
 
         return back()->withErrors([
@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         $admin = Admin::where('admin_email', $request->input('email'))->first();
 
-        if($admin && Hash::check($request->input('password'), (string)$admin->admin_password)){
+        if($admin && Hash::check($request->input('password'), $admin->admin_password)){
             Auth::login($admin);
             $request->session()->regenerate();
             return redirect()->intended(route('adminDashboard'));
@@ -65,13 +65,46 @@ class AuthController extends Controller
         ]);
     }
 
+    public function doRegister(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'firstName' => 'required',
+            'streetNumber' => 'required',
+            'streetName' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'number' => 'required',
+            'email' => 'required|email|unique:clients,client_email',
+            // pas d'espace après la virgule dans le unique, sinon Laravel considère qu'il y a un espace au nom de la colonne
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        Client::create([
+            'client_name' => $validated['name'],
+            'client_firstName' => $validated['firstName'],
+            'client_streetNumber' => $validated['streetNumber'],
+            'client_streetName' => $validated['streetName'],
+            'client_postcode' => $validated['postcode'],
+            'client_city' => $validated['city'],
+            'client_number' => $validated['number'],
+            'client_email' => $validated['email'],
+            'client_password' => Hash::make($validated['password']),
+        ]);
+
+        return redirect()->route('clientLogin')->with('success', 'Votre compte a bien été crée !');
+    }
+
     public function clientDashboard(){
         return view('clients.clientDashboard');
     }
 
+    public function adminDashboard(){
+        return view('admins.adminDashboard');
+    }
+
     public function logout(){
         \Auth::logout();
-        return redirect()->route('clientLogin')->with('success', 'Vous êtes déconnecté. A bientôt !');
+        return to_route('clientLogin');
     }
 
 }
