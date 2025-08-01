@@ -16,6 +16,7 @@ class ClientController extends Controller
         $client = Client::findOrFail($client_id);
         return view('clients.clientDashboard', compact('client'));
     }
+
     //Récupère tous les clients dans la DB
     public function index()
     {

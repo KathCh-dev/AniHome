@@ -24,6 +24,12 @@ return new class extends Migration
             $table->string('pet_diet');
             $table->string('pet_sociability');
             $table->string('pet_allergy');
+
+            //Ajout de la foreign key
+            $table->string('client_id');
+            //Référencement de la source de la foreign key, ajout de l'option d'effacement en cascade
+            $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

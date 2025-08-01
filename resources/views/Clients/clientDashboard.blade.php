@@ -20,9 +20,9 @@
             <a href=""><h4 class="text-center text-indigo-900 font-extrabold text-1xl m-5"> Créer une fiche !</h4></a>
         </div>
         
-        <div>
-            <div class="container border ">
-                <h4 class="text-center text-indigo-900 font-extrabold text-1xl m-5"> "insérer carte animal"</h4>
+        <div class="p-4">
+            <div>
+                @include('pets.petCard')
             </div>
         </div>
     </section>
