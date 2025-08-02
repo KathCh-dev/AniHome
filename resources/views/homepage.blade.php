@@ -5,7 +5,7 @@
 
     <section class="bg-purple-100 p-5" id="welcome-section">
         <div class="flex-column center">
-            <h1 class="text-center text-indigo-900 font-extrabold text-5xl m-5">Bienvenue chez Ani'Home</h1>
+            <h1 class="text-center text-indigo-900 font-extrabold text-5xl m-5" id="titre-accueil">Bienvenue chez Ani'Home</h1>
     
             <img src="\..\..\images\homepage-chien-accueil.png" alt="Photo d'un chien qui court sur la plage." class="place-self-center" id="welcome-dog-image">
     
@@ -15,7 +15,7 @@
 
     <section class="p-5 padding-bottom" id="services-section">
         <h2 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Découvrez nos services</h2>
-        <div class="flex">
+        <div class="flex" id="services-bloc">
             <div class="services-card text-center max-w-sm mx-auto">
                 <h3 class="text-indigo-900 font-extrabold">Promenade</h3>
                 <br>
@@ -36,7 +36,7 @@
 
     <section class="bg-purple-100 p-5 padding-bottom" id="rooms-section">
         <h2 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Découvrez nos séjours en chambre</h2>
-        <div class="flex">
+        <div class="flex" id="rooms-bloc">
             <div class="max-w-sm mx-auto rounded-2xl shadow-md p-6 space-y-4 flex-column room-card center" id="room1">
                 <h3 class="text-indigo-900 font-extrabold">Chambre 1 :</h3>
                 <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison.">
@@ -59,6 +59,6 @@
             </div>
         </div>
     </section>
-    @vite('resources/css/homepage.css');
+    @vite('resources/css/homepage.css')
 
 @endsection

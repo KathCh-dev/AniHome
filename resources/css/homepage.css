@@ -1,3 +1,4 @@
+/* CSS général de la page */
 section{
     margin-top: 5px;
     margin-bottom: 10px;
@@ -16,22 +17,16 @@ section{
     justify-items: center;
 }
 
-
-
-
-
+/* section 1 : Bienvenue */
 #welcome-dog-image{
     width: 50%;
     height: auto;
+    margin: 20px;
     border-radius: 25px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
-
+/* Section 2 : services */
 .services-image{  
     height: 100%;
     border-radius: 20px;
@@ -41,6 +36,38 @@ section{
      border: solid 3px #59168B;
 }
 
+/* Section 3 : chambres */
 .room-card{
     background-color: #FEFCE8;
 }
+
+/* Media queries pour une page responsive */
+@media (max-width: 550px){
+
+    /* Section 1 : Bienvenue */
+    #titre-accueil{
+        font-size:x-large;
+    }
+    #welcome-dog-image{
+        width: 80%;
+    }
+
+    /* Section 2 : services */
+    #services-bloc{
+        flex-direction: column;
+    }
+
+    .services-card{
+        margin-top: 25px;
+    }
+
+    /* Section 3 : chambres */
+    #rooms-bloc{
+        flex-direction: column;
+    }
+
+    .room-card{
+        margin-top: 30px;
+    }
+}
+
