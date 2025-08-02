@@ -39,21 +39,21 @@
         <div class="flex" id="rooms-bloc">
             <div class="max-w-sm mx-auto rounded-2xl shadow-md p-6 space-y-4 flex-column room-card center" id="room1">
                 <h3 class="text-indigo-900 font-extrabold">Chambre 1 :</h3>
-                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison.">
+                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison." class="room-icon">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, sunt iure! Iure ducimus aspernatur perspiciatis possimus aut! Eaque recusandae, repellat assumenda minima tenetur, est ullam qui perferendis sed enim voluptates!</p>
                 <button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 m-2 p-2 hover:bg-purple-900 button">Réserver</button>
             </div>
 
             <div class="max-w-sm mx-auto rounded-2xl shadow-md p-6 space-y-4 flex-column room-card center" id="room2">
                 <h3 class="text-indigo-900 font-extrabold">Chambre 2 :</h3>
-                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison.">
+                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison." class="room-icon">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, sunt iure! Iure ducimus aspernatur perspiciatis possimus aut! Eaque recusandae, repellat assumenda minima tenetur, est ullam qui perferendis sed enim voluptates!</p>
                 <button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 m-2 p-2 hover:bg-purple-900 button">Réserver</button>
             </div>
 
             <div class="max-w-sm mx-auto rounded-2xl shadow-md p-6 space-y-4 flex-column room-card center" id="room3">
                 <h3 class="text-indigo-900 font-extrabold">Chambre 3 :</h3>
-                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison.">
+                <img src="\..\..\images\logo-maison.png" alt="Logo d'une maison." class="room-icon">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, sunt iure! Iure ducimus aspernatur perspiciatis possimus aut! Eaque recusandae, repellat assumenda minima tenetur, est ullam qui perferendis sed enim voluptates!</p>
                 <button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 m-2 p-2 hover:bg-purple-900 button">Réserver</button>
             </div>
