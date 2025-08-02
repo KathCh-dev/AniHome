@@ -15,7 +15,7 @@
                 <a href="" class="text-purple-900 font-medium hover:underline">Services</a>
                 <a href="" class="text-purple-900 font-medium hover:underline">Contact</a>
             </div>
-            <a href="" class="content-center"><img src="..\..\images\logo-anihome.png" alt="Logo cliquable d'Ani'Home, il vous ramène à la page d'accueil du site."></a>
+            <a href="{{ route('homepage') }}" class="content-center"><img src="..\..\images\logo-anihome.png" alt="Logo cliquable d'Ani'Home, il vous ramène à la page d'accueil du site."></a>
 
             <!-- Bouton de connexion si la personne n'est pas connectée -->
             @guest

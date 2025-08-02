@@ -7,7 +7,7 @@ use App\Http\Controllers\PetController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', [HomepageController::class, 'homepage'])->name('homepage');
+Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
 Route::get('/register', [ClientController::class, 'register'])->name('register');
 Route::post('/register', [ClientController::class, 'doRegister'])->name('doRegister');
 Route::get('/clientLogin', [AuthController::class, 'clientLogin'])->name('clientLogin');
