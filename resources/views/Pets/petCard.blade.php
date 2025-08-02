@@ -5,7 +5,7 @@
         <img src="..\..\images\petLogo.png" alt="" class="h-1/4">
     </div>
     <div>
-        <h3 class="text-center text-indigo-900 font-extrabold text-1xl m-5">{{ $pet->pet_name }}</h3>
+        <h3 class="text-center text-indigo-900 font-extrabold text-1xl m-5"></h3>
     </div>
     </div>
     <div class="text-indigo-900 font-bold">

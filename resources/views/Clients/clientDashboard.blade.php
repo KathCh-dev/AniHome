@@ -39,7 +39,7 @@
 
     <section>
         <h3 class="text-center text-indigo-900 font-extrabold text-2xl m-5">Modifier mes informations :</h3>
-        @include('clients.clientCRUD')
+        @include('Clients.clientCRUD', ['client' => $client])
     </section>
 
 @endsection

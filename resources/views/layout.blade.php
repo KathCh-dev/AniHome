@@ -19,12 +19,12 @@
 
             <!-- Bouton de connexion si la personne n'est pas connectée -->
             @guest
-                <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se déconnecter ➜</button></a>
+                <a href="{{ route('clientLogin') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
             @endguest
 
             <!-- Bouton de déconnexion si la personne est connectée -->
             @auth
-                <a href="{{ route('logout') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se connecter ➜</button></a>
+                <a href="{{ route('logout') }}"><button class="bg-purple-400 text-center text-yellow-50 font-bold text-base border border-3 border-purple-900 rounded-3xl m-2 p-2 hover:bg-purple-900">Se déconnecter ➜</button></a>
             @endauth
 
         </div>

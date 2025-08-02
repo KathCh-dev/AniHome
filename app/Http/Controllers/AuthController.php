@@ -34,7 +34,7 @@ class AuthController extends Controller
             // on démarre une nouvelle session pour éviter l'usurpation de token
             $request->session()->regenerate();
             //on redirige notre client vers son dashboard perso
-            return redirect()->intended(route('clientDashboard'));
+            return redirect()->intended(route('clientDashboard', ['client_id' => $client->client_id]));
         }
 
         return back()->withErrors([
